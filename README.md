@@ -67,6 +67,9 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.2.0
+* Working CentOS/RHEL7 code
+
 ### v0.1.1
 * Cleaned up readme
 
