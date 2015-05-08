@@ -15,46 +15,38 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+The SplunkUF module manages the Splunk Universal forwarder on RedHat, Debian, and Ubuntu.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
+This module installs the Splunk Universal forwarder only and will configure it to talk to a deployment server. Supported OS's include RedHat, Debian, and Ubuntu.
 
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+For a more full featured Splunk intall or module look at [huit/splunk](https://forge.puppetlabs.com/huit/splunk)
 
 ## Setup
 
 ### What splunkuf affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* /etc/init.d/splunkforwarder
+* /opt/splunkforwarder
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+Have access to a yum repostiroy or debian repository with splunkforwarder from [Splunk](http://www.splunk.com/en_us/download/universal-forwarder.html)
 
 ### Beginning with splunkuf
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+The only mode this module has is to install a [Universal Forwarder](http://docs.splunk.com/Documentation/Splunk/6.2.3/Forwarding/Introducingtheuniversalforwarder) If you need a fully featured Splunk install [huit/splunk](https://forge.puppetlabs.com/huit/splunk)
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+To use the universal forwarder one parameter can be passed to the class to set the deployment server to communicate with
+
+```Puppet
+class { 'splunkuf':
+  targeturi => 'deployment.tld:8089',
+}
+```
 
 ## Reference
 
@@ -65,15 +57,14 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+####RHEL/CentOS 7
+RHEL/CentOS 7 is fully supported and functional
 
 ## Development
 
 Since your module is awesome, other users will want to play with it. Let them
 know what the ground rules for contributing are.
 
-## Release Notes/Contributors/Etc **Optional**
+## Release Notes/Contributors/Etc 
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+### v0.1.0 initial work
