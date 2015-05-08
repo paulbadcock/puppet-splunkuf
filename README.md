@@ -67,6 +67,9 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.3.0
+* Working Ubuntu/Debian code
+
 ### v0.2.0
 * Working CentOS/RHEL7 code
 

@@ -24,17 +24,30 @@
 #
 class splunkuf (
   $targeturi  = $::splunkuf::params::targeturi,
+  $systemd = $::splunkuf::params::systemd,
 ) inherits splunkuf::params {
 
   package {'splunkforwarder':
     ensure => latest,
   }
 
-  file {'/usr/lib/systemd/system/splunkforwarder.service':
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
-    source => 'puppet:///modules/splunkuf/splunkforwarder.service',
+  case $systemd {
+    true: {
+      file {'/usr/lib/systemd/system/splunkforwarder.service':
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+        source => 'puppet:///modules/splunkuf/splunkforwarder.service',
+      }
+    }
+    default: {
+      file {'/etc/init.d/splunkforwarder':
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+        source => 'puppet:///modules/splunkuf/splunkforwarder',
+      }
+    }
   }
 
   file {'/opt/splunkforwarder/targeturi':
