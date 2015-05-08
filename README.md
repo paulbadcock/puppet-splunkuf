@@ -67,5 +67,8 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.1.1
+* Cleaned up readme
+
 ### v0.1.0
 * Initial work
