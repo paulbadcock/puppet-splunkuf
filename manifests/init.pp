@@ -1,41 +1,60 @@
 # == Class: splunkuf
 #
-# Full description of class splunkuf here.
+# Installs and manages the Splunk Universal Forwarder
 #
 # === Parameters
 #
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*targeturi*]
+#   String accepts a deployment server and port
+#   e.g. "deploymentserver.tld:8089"
 #
 # === Examples
 #
 #  class { 'splunkuf':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    targeturi => 'deploymentserver.tld:8089',
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Paul Badcock <paul@bad.co.ck>
 #
 # === Copyright
 #
-# Copyright 2015 Your name here, unless otherwise noted.
+# Copyright 2015 Paul Badcock, unless otherwise noted.
 #
-class splunkuf {
+class splunkuf (
+  $targeturi  = $::splunkuf::params::targeturi,
+) inherits splunkuf::params {
 
+  package {'splunkforwarder':
+    ensure => latest,
+  }
 
+  file {'/usr/lib/systemd/system/splunkforwarder.service':
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/splunkuf/splunkforwarder.service',
+  }
+
+  file {'/opt/splunkforwarder/targeturi':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => "Deployment Server is: ${targeturi}",
+    require => Package['splunkforwarder'],
+  }
+
+  service {'splunkforwarder':
+    ensure => 'running',
+    enable => true,
+  }
+
+  exec {'Set deployment server':
+    command     => "/opt/splunkforwarder/bin/splunk set deploy-poll ${targeturi} -auth admin:changeme",
+    path        => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
+    subscribe   => File['/opt/splunkforwarder/targeturi'],
+    notify      => Service['splunkforwarder'],
+    refreshonly => true,
+  }
 }
