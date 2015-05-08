@@ -50,24 +50,17 @@ class splunkuf (
     }
   }
 
-  file {'/opt/splunkforwarder/targeturi':
+  file {'/opt/splunkforwarder/etc/system/local/deploymentclient.conf':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => "Deployment Server is: ${targeturi}",
+    content => template('splunkuf/deploymentclient.conf.erb'),
+    notify  => Service['splunkforwarder'],
     require => Package['splunkforwarder'],
   }
 
   service {'splunkforwarder':
     ensure => 'running',
     enable => true,
-  }
-
-  exec {'Set deployment server':
-    command     => "/opt/splunkforwarder/bin/splunk set deploy-poll ${targeturi} -auth admin:changeme",
-    path        => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
-    subscribe   => File['/opt/splunkforwarder/targeturi'],
-    notify      => Service['splunkforwarder'],
-    refreshonly => true,
   }
 }

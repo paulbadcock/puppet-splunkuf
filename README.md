@@ -60,12 +60,18 @@ with things. (We are working on automating this section!)
 ####RHEL/CentOS 7
 RHEL/CentOS 7 is fully supported and functional
 
+####Debian/Ubuntu
+Currently under testing
+
 ## Development
 
 Since your module is awesome, other users will want to play with it. Let them
 know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
+
+### v0.3.2
+* Reworked the deployment info into a file to do things correctly
 
 ### v0.3.1
 * Silly default line endings in Windows
