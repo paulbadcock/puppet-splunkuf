@@ -1,0 +1,14 @@
+{
+  "name": "paulbadcock-splunkuf",
+  "version": "0.1.0",
+  "author": "Paul Badcock",
+  "summary": "Splunk Universal Forwarder Install",
+  "license": "MIT",
+  "source": "https://github.com/paulbadcock/puppet-splunkuf",
+  "project_page": "https://github.com/paulbadcock/puppet-splunkuf",
+  "issues_url": "https://github.com/paulbadcock/puppet-splunkuf/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
