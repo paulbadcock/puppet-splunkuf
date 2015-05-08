@@ -13,7 +13,7 @@
 # Short-Description: Start splunk
 # Description: Splunk indexer service
 ### END INIT INFO
-#
+
 RETVAL=0
 
 splunk_start() {

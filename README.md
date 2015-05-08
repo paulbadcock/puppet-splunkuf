@@ -67,6 +67,9 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.3.1
+* Silly default line endings in Windows
+
 ### v0.3.0
 * Working Ubuntu/Debian code
 

@@ -5,7 +5,7 @@
 # === Variables
 #
 # [*targeturi*]
-#   String accepts a deployment server and port
+#   String accepts a deployment server and port.
 #   e.g. "deploymentserver.tld:8089"
 #
 # === Authors
