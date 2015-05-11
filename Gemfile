@@ -1,12 +1,14 @@
-source 'https://rubygems.org'
-
-puppetversion = ENV.key?('PUPPET_VERSION') ? "= #{ENV['PUPPET_VERSION']}" : ['>= 3.3']
-gem 'puppet', puppetversion
-gem 'facter', '>= 1.7.0'
+source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
 group :development, :test do
   gem 'rake', :require => false
   gem 'puppetlabs_spec_helper', :require => false
   gem 'puppet-lint', :require => false
   gem 'coveralls', :require => false
+end
+
+if puppetversion = ENV['PUPPET_GEM_VERSION']
+  gem 'puppet', puppetversion, :require => false
+else
+  gem 'puppet', :require => false
 end
