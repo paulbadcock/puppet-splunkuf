@@ -1,4 +1,4 @@
-# splunkuf [![Build Status](https://travis-ci.org/paulbadcock/puppet-splunkuf.svg)](https://travis-ci.org/paulbadcock/puppet-splunkuf)
+# splunkuf [![Build Status](https://travis-ci.org/paulbadcock/puppet-splunkuf.svg)](https://travis-ci.org/paulbadcock/puppet-splunkuf) [![Coverage Status](https://coveralls.io/repos/paulbadcock/puppet-splunkuf/badge.svg)](https://coveralls.io/r/paulbadcock/puppet-splunkuf)
 
 #### Table of Contents
 
