@@ -3,7 +3,6 @@ describe 'splunkuf' do
 
   context 'with defaults for all parameters' do
     it { should contain_class('splunkuf') }
-    it { should contain_class('splunkuf::params') }
   end
 
   context 'on RHEL7' do
@@ -16,18 +15,11 @@ describe 'splunkuf' do
     end
 
     describe 'should install splunk forwarder package' do
-      let(:params) do
-        {
-          :targeturi => 'splunkwoo:8089',
-        }
-      end
-
-      it { should contain_splunkuf__installpkg('splunkforwarder').with_ensure('latest') }
+      it { should contain_package('splunkforwarder').with_ensure('latest') }
     end
 
     it do
       should contain_file('/usr/lib/systemd/system/splunkforwarder.service').with({
-        'ensure'  => 'file',
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0755',
@@ -36,7 +28,6 @@ describe 'splunkuf' do
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/deploymentclient.conf').with({
-        'ensure'  => 'file',
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0644',
@@ -67,12 +58,11 @@ describe 'splunkuf' do
         }
       end
 
-      it { should contain_splunkuf__installpkg('splunkforwarder').with_ensure('latest') }
+      it { should contain_package('splunkforwarder').with_ensure('latest') }
     end
 
     it do
       should contain_file('/etc/init.d/splunkforwarder').with({
-        'ensure'  => 'file',
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0755',
@@ -81,7 +71,6 @@ describe 'splunkuf' do
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/deploymentclient.conf').with({
-        'ensure'  => 'file',
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0644',
