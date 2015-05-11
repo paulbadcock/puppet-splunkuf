@@ -21,7 +21,7 @@ The SplunkUF module manages the Splunk Universal forwarder on RedHat, Debian, an
 
 This module installs the Splunk Universal forwarder only and will configure it to talk to a deployment server. Supported OS's include RedHat, Debian, and Ubuntu.
 
-For a more full featured Splunk intall or module look at [huit/splunk](https://forge.puppetlabs.com/huit/splunk)
+For a more full featured Splunk install or module look at [huit/splunk](https://forge.puppetlabs.com/huit/splunk)
 
 ## Setup
 
@@ -32,7 +32,7 @@ For a more full featured Splunk intall or module look at [huit/splunk](https://f
 
 ### Setup Requirements
 
-Have access to a yum repostiroy or debian repository with splunkforwarder from [Splunk](http://www.splunk.com/en_us/download/universal-forwarder.html)
+Have access to a yum repository or debian repository with splunkforwarder from [Splunk](http://www.splunk.com/en_us/download/universal-forwarder.html)
 
 ### Beginning with splunkuf
 
@@ -69,6 +69,9 @@ Since your module is awesome, other users will want to play with it. Let them
 know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
+
+### v0.3.4
+* Typo and general spelling stuff, 100% code coverage for RHEL6/7
 
 ### v0.3.3
 * Metadata work to improve code quality
