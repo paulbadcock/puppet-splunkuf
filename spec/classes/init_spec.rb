@@ -19,7 +19,8 @@ describe 'splunkuf' do
     end
 
     it do
-      should contain_file('/usr/lib/systemd/system/splunkforwarder.service').with({
+      should contain_file('/etc/init.d/splunkforwarder').with({
+      # should contain_file('/usr/lib/systemd/system/splunkforwarder.service').with({
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0755',
