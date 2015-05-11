@@ -1,4 +1,4 @@
-# splunkuf
+# splunkuf [![Build Status](https://travis-ci.org/paulbadcock/puppet-splunkuf.svg)](https://travis-ci.org/paulbadcock/puppet-splunkuf)
 
 #### Table of Contents
 
