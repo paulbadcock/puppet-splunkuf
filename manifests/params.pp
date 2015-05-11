@@ -17,7 +17,7 @@
 # Copyright 2015 Paul Badcock, unless otherwise noted.
 #
 class splunkuf::params {
-  $targeturi            = 'spunk.tld:8089'
+  $targeturi = 'spunk.tld:8089'
 
   case $::operatingsystem {
     'RedHat', 'CentOS': {

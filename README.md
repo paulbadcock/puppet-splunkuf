@@ -70,6 +70,9 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.3.3
+* Metadata work to improve code quality
+
 ### v0.3.2
 * Reworked the deployment info into a file to do things correctly
 

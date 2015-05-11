@@ -1,14 +1,24 @@
 {
   "name": "paulbadcock-splunkuf",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Paul Badcock",
   "summary": "Splunk Universal Forwarder Install",
   "license": "MIT",
   "source": "https://github.com/paulbadcock/puppet-splunkuf",
   "project_page": "https://github.com/paulbadcock/puppet-splunkuf",
   "issues_url": "https://github.com/paulbadcock/puppet-splunkuf/issues",
+  "tags": ["splunk", "universalforwarder"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem":"RedHat",
+      "operatingsystemrelease":[ "5.0", "6.0", "7.0" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "12.04", "10.04" ]
+    }
+  ],
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=3.2.0 <5.0.0" }
   ]
 }
-
