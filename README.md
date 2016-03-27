@@ -70,6 +70,9 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.3.6
+* Credit fixed
+
 ### v0.3.5
 * Fixes from [Ryan Sabatini](https://github.com/scotchsterling) for systemd
 
