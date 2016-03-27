@@ -71,7 +71,7 @@ know what the ground rules for contributing are.
 ## Release Notes/Contributors/Etc 
 
 ### v0.3.5
-* Fixes from scotchsterling for systemd
+* Fixes from [Ryan Sabatini](https://github.com/scotchsterling) for systemd
 
 ### v0.3.4
 * Typo and general spelling stuff, 100% code coverage for RHEL6/7
