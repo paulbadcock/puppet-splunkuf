@@ -22,7 +22,7 @@ class splunkuf::params {
   case $::operatingsystem {
     'RedHat', 'CentOS': {
       case $::operatingsystemmajrelease {
-        7: {
+        '7': {
           $systemd = true
         }
         default: {
