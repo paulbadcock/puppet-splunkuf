@@ -40,11 +40,20 @@ The only mode this module has is to install a [Universal Forwarder](http://docs.
 
 ## Usage
 
-To use the universal forwarder one parameter can be passed to the class to set the deployment server to communicate with
+To use the universal forwarder set the targeturi parameter of the deployment server to communicate with
 
 ```Puppet
 class { 'splunkuf':
   targeturi => 'deployment.tld:8089',
+}
+```
+
+Optional: To change the default management communication port use the mgmthostport parameter
+
+```Puppet
+class { 'splunkuf':
+  targeturi    => 'deployment.tld:8089',
+  mgmthostport => 'managementhost.tld:9089',
 }
 ```
 
@@ -69,6 +78,9 @@ Since your module is awesome, other users will want to play with it. Let them
 know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
+
+### v0.4.0
+* Contributions from [Ryan Sabatini](https://github.com/scotchsterling) to override the management service port
 
 ### v0.3.6
 * Credit fixed
