@@ -23,8 +23,9 @@
 # Copyright 2015 Paul Badcock, unless otherwise noted.
 #
 class splunkuf (
-  $targeturi  = $::splunkuf::params::targeturi,
-  $systemd = $::splunkuf::params::systemd,
+  $targeturi    = $::splunkuf::params::targeturi,
+  $systemd      = $::splunkuf::params::systemd,
+  $mgmthostport = $::splunkuf::params::mgmthostport,
 ) inherits splunkuf::params {
 
   package {'splunkforwarder':
@@ -57,6 +58,17 @@ class splunkuf (
     content => template('splunkuf/deploymentclient.conf.erb'),
     notify  => Service['splunkforwarder'],
     require => Package['splunkforwarder'],
+  }
+
+  if $mgmthostport != undef {
+    file {'/opt/splunkforwarder/etc/system/local/web.conf':
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => template('splunkuf/web.conf.erb'),
+      notify  => Service['splunkforwarder'],
+      require => Package['splunkforwarder'],
+    }
   }
 
   service {'splunkforwarder':

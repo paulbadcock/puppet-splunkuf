@@ -19,6 +19,8 @@
 class splunkuf::params {
   $targeturi = 'spunk.tld:8089'
 
+  $mgmthostport = undef
+
   case $::operatingsystem {
     'RedHat', 'CentOS': {
       case $::operatingsystemmajrelease {
