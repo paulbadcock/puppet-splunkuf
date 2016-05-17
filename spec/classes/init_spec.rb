@@ -8,7 +8,7 @@ describe 'splunkuf' do
   context 'on RHEL7' do
     let :facts do
       {
-        :operatingsystem            => 'RedHat',
+        :osfamily                   => 'RedHat',
         :operatingsystemmajrelease  => '7',
         :architecure                => 'amd64',
       }
@@ -53,7 +53,7 @@ describe 'splunkuf' do
   context 'on RHEL7 with Host Port Override' do
     let :facts do
       {
-        :operatingsystem            => 'RedHat',
+        :osfamily                   => 'RedHat',
         :operatingsystemmajrelease  => '7',
         :architecure                => 'amd64',
       }

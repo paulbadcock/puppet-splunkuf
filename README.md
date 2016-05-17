@@ -79,6 +79,10 @@ know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
 
+### v0.4.1
+* Contributions from [LightAxe](https://github.com/LightAxe) to fix module usage on other RHEL based OS types.
+* Cleanup in Gemfile and gitignore
+
 ### v0.4.0
 * Contributions from [Ryan Sabatini](https://github.com/scotchsterling) to override the management service port
 
