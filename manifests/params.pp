@@ -21,8 +21,8 @@ class splunkuf::params {
 
   $mgmthostport = undef
 
-  case $::operatingsystem {
-    'RedHat', 'CentOS': {
+  case $::osfamily {
+    'RedHat': {
       case $::operatingsystemmajrelease {
         '7': {
           $systemd = true
