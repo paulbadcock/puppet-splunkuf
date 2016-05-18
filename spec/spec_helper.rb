@@ -1,7 +1,4 @@
-require 'puppetlabs_spec_helper/module_spec_helper'
+require 'coveralls'
+Coveralls.wear_merged!
 
-begin
-  require 'coveralls'
-  Coveralls.wear!
-rescue LoadError
-end
+require 'puppetlabs_spec_helper/module_spec_helper'
