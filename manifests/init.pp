@@ -37,7 +37,7 @@ class splunkuf (
       file {'/usr/lib/systemd/system/splunkforwarder.service':
         owner  => 'root',
         group  => 'root',
-        mode   => '0755',
+        mode   => '0644',
         source => 'puppet:///modules/splunkuf/splunkforwarder.service',
       }
     }

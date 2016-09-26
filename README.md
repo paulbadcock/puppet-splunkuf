@@ -90,7 +90,7 @@ know what the ground rules for contributing are.
 * Credit fixed
 
 ### v0.3.5
-* Fixes from [Ryan Sabatini](https://github.com/scotchsterling) for systemd
+* Fixes from [Ryan Sabatini](https://github.com/rjsabatini) for systemd
 
 ### v0.3.4
 * Typo and general spelling stuff, 100% code coverage for RHEL6/7
