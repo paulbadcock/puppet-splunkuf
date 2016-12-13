@@ -1,6 +1,6 @@
 {
   "name": "paulbadcock-splunkuf",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "Paul Badcock",
   "summary": "Splunk Universal Forwarder Install",
   "license": "MIT",
@@ -15,7 +15,11 @@
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "12.04", "10.04" ]
+      "operatingsystemrelease": [ "16.10", "16.04", "15.10", "15.04", "14.04", "12.04", "10.04" ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "8.0", "7.0" ]
     }
   ],
   "dependencies": [

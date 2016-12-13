@@ -8,6 +8,10 @@
 #   String accepts a deployment server and port.
 #   e.g. "deploymentserver.tld:8089"
 #
+# [*system_user*]
+#   System user that run splunk binary
+#   e.g. "splunk"
+#
 # === Authors
 #
 # Paul Badcock <paul@bad.co.ck>
@@ -17,23 +21,26 @@
 # Copyright 2015 Paul Badcock, unless otherwise noted.
 #
 class splunkuf::params {
-  $targeturi = 'spunk.tld:8089'
+  $targeturi   = 'spunk.tld:8089'
+  $system_user = 'splunk'
 
   $mgmthostport = undef
 
   case $::osfamily {
     'RedHat': {
-      case $::operatingsystemmajrelease {
-        '7': {
-          $systemd = true
-        }
-        default: {
-          $systemd = false
-        }
+      if $::operatingsystemmajrelease >= 7 {
+        $systemd = true
       }
     }
-    /^(Debian|Ubuntu)$/: {
-      $systemd = false
+    'Debian': {
+      if $::operatingsystemmajrelease >= 8 {
+        $systemd = true
+      }
+    }
+    'Ubuntu': {
+      if $::operatingsystemmajrelease >= 15 {
+        $systemd = true
+      }
     }
     default: {
       $systemd = false

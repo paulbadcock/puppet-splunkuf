@@ -28,16 +28,16 @@ describe 'splunkuf' do
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/deploymentclient.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
         })
     end
 
     it do
       should_not contain_file('/opt/splunkforwarder/etc/system/local/web.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
       })
     end
@@ -80,16 +80,16 @@ describe 'splunkuf' do
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/deploymentclient.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
       })
     end
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/web.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
       })
     end
@@ -131,16 +131,16 @@ describe 'splunkuf' do
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/deploymentclient.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
         })
     end
 
     it do
       should_not contain_file('/opt/splunkforwarder/etc/system/local/web.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
       })
     end
@@ -188,16 +188,16 @@ describe 'splunkuf' do
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/deploymentclient.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
       })
     end
 
     it do
       should contain_file('/opt/splunkforwarder/etc/system/local/web.conf').with({
-        'owner'   => 'root',
-        'group'   => 'root',
+        'owner'   => 'splunk',
+        'group'   => 'splunk',
         'mode'    => '0644',
       })
     end

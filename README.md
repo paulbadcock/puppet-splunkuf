@@ -57,6 +57,14 @@ class { 'splunkuf':
 }
 ```
 
+Optional: To change the default system user (splunk) running the universal forwarder binary
+
+```Puppet
+class { 'splunkuf':
+  targeturi    => 'deployment.tld:8089',
+  system_user  => 'root',
+}
+```
 ## Reference
 
 Here, list the classes, types, providers, facts, etc contained in your module.

@@ -18,22 +18,38 @@ RETVAL=0
 
 splunk_start() {
   echo Starting Splunk...
+<% if @system_user == "root" %>
   "/opt/splunkforwarder/bin/splunk" start --accept-license --no-prompt --answer-yes
+<% else %>
+  su - <%= @system_user %> -c '/opt/splunkforwarder/bin/splunk start --accept-license --no-prompt --answer-yes'
+<% end %>
   RETVAL=$?
 }
 splunk_stop() {
   echo Stopping Splunk...
-  "/opt/splunkforwarder/bin/splunk" stop 
+<% if @system_user == "root" %>
+  "/opt/splunkforwarder/bin/splunk" stop
+<% else %>
+  su - <%= @system_user %> -c '/opt/splunkforwarder/bin/splunk stop'
+<% end %>
   RETVAL=$?
 }
 splunk_restart() {
   echo Restarting Splunk...
-  "/opt/splunkforwarder/bin/splunk" restart 
+<% if @system_user == "root" %>
+  "/opt/splunkforwarder/bin/splunk" restart
+<% else %>
+  su - <%= @system_user %> -c '/opt/splunkforwarder/bin/splunk restart'
+<% end %>
   RETVAL=$?
 }
 splunk_status() {
   echo Splunk status:
-  "/opt/splunkforwarder/bin/splunk" status 
+<% if @system_user == "root" %>
+  "/opt/splunkforwarder/bin/splunk" status
+<% else %>
+  su - <%= @system_user %> -c '/opt/splunkforwarder/bin/splunk status'
+<% end %>
   RETVAL=$?
 }
 case "$1" in
