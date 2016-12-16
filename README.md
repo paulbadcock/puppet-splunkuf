@@ -86,6 +86,9 @@ Since your module is awesome, other users will want to play with it. Let them
 know what the ground rules for contributing are.
 
 ## Release Notes/Contributors/Etc 
+### v0.4.2
+* Contributions from [Natale Vinto](https://github.com/blues-man) for service_user parameter for non root installs
+* Disabled some older Travis tests due to json gem breaking on 1.9 ruby
 
 ### v0.4.1
 * Contributions from [LightAxe](https://github.com/LightAxe) to fix module usage on other RHEL based OS types.
