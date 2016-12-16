@@ -6,13 +6,9 @@ language: ruby
 bundler_args: --without development
 script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
 rvm:
-- 1.9.3
 - 2.1.0
 env:
   matrix:
-    - PUPPET_GEM_VERSION="~> 3.2.4"
-    - PUPPET_GEM_VERSION="~> 3.3.2"
-    - PUPPET_GEM_VERSION="~> 3.4.3"
     - PUPPET_GEM_VERSION="~> 3.5.1"
     - PUPPET_GEM_VERSION="~> 3.6.2"
     - PUPPET_GEM_VERSION="~> 3.7.5"
