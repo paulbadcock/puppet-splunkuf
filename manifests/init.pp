@@ -44,10 +44,10 @@ class splunkuf (
 
   case $systemd {
     true: {
-      file { '/usr/lib/systemd/system/splunkforwarder.service':
+      file { '/etc/systemd/system/splunkforwarder.service':
         owner   => 'root',
         group   => 'root',
-        mode    => '0755',
+        mode    => '0664',
         content => template('splunkuf/splunkforwarder.service.erb'),
       }
     }
