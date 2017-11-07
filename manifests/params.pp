@@ -34,17 +34,17 @@ class splunkuf::params {
 
   case $::osfamily {
     'RedHat': {
-      if $::operatingsystemmajrelease >= 7 {
+      if versioncmp($::operatingsystemmajrelease, '7') >= 0 {
         $systemd = true
       }
     }
     'Debian': {
-      if $::operatingsystemmajrelease >= 8 {
+      if versioncmp($::operatingsystemmajrelease, '8') >= 0 {
         $systemd = true
       }
     }
     'Ubuntu': {
-      if $::operatingsystemmajrelease >= 15 {
+      if versioncmp($::operatingsystemmajrelease, '15') >= 0 {
         $systemd = true
       }
     }
