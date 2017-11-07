@@ -4,6 +4,10 @@
 #
 # === Parameters
 #
+# [*clientname*]
+#   String accepts a client
+#   e.g. "$hostname-$role"
+#
 # [*targeturi*]
 #   String accepts a deployment server and port
 #   e.g. "deploymentserver.tld:8089"
@@ -27,6 +31,7 @@
 # Copyright 2015 Paul Badcock, unless otherwise noted.
 #
 class splunkuf (
+  $clientname   = $::splunkuf::params::clientname,
   $targeturi    = $::splunkuf::params::targeturi,
   $systemd      = $::splunkuf::params::systemd,
   $system_user  = $::splunkuf::params::system_user,
@@ -62,8 +67,8 @@ class splunkuf (
     group   => $system_user,
     recurse => true,
     require => Package['splunkforwarder'],
-  } ->
-  file { '/opt/splunkforwarder/etc/system/local/deploymentclient.conf':
+  }
+  -> file { '/opt/splunkforwarder/etc/system/local/deploymentclient.conf':
     owner   => $system_user,
     group   => $system_user,
     mode    => '0644',

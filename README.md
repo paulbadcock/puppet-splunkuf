@@ -65,6 +65,15 @@ class { 'splunkuf':
   system_user  => 'root',
 }
 ```
+
+Optional: To specify a client name
+```Puppet
+class { 'splunkuf':
+  targeturi    => 'deployment.tld:8089',
+  clientname   => "${::hostname}-role",
+}
+```
+
 ## Reference
 
 Here, list the classes, types, providers, facts, etc contained in your module.
