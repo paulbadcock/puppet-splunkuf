@@ -1,3 +1,7 @@
 # Managed through Puppet
 [target-broker:deploymentServer]
 targetUri = <%= @targeturi %>
+
+<% unless @clientname.empty? -%>
+clientName = <%= @clientname %>
+<% end -%>

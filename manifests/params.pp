@@ -4,6 +4,10 @@
 #
 # === Variables
 #
+# [*clientname*]
+#   String accepts a client
+#   e.g. "$hostname-$role"
+#
 # [*targeturi*]
 #   String accepts a deployment server and port.
 #   e.g. "deploymentserver.tld:8089"
@@ -25,6 +29,8 @@ class splunkuf::params {
   $system_user = 'splunk'
 
   $mgmthostport = undef
+
+  $clientname  = undef
 
   case $::osfamily {
     'RedHat': {
