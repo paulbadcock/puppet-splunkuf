@@ -2,6 +2,6 @@
 [target-broker:deploymentServer]
 targetUri = <%= @targeturi %>
 
-<% unless @clientname.empty? -%>
+<% if !@clientname.nil? && !@clientname.empty? -%>
 clientName = <%= @clientname %>
 <% end -%>
