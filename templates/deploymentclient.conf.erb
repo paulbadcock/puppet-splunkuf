@@ -2,6 +2,8 @@
 [target-broker:deploymentServer]
 targetUri = <%= @targeturi %>
 
+[deployment-client]
+phoneHomeIntervalInSecs = <%= @phonehomeintervalinsecs %>
 <% if !@clientname.nil? && !@clientname.empty? -%>
 clientName = <%= @clientname %>
 <% end -%>

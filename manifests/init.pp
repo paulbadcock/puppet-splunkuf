@@ -16,6 +16,10 @@
 #   System user that run splunk binary
 #   e.g. "splunk"
 #
+# [*phonehomeintervalinsecs*]
+#   Integer accepts number
+#   e.g. 60
+#
 # === Examples
 #
 #  class { 'splunkuf':
@@ -31,11 +35,12 @@
 # Copyright 2015 Paul Badcock, unless otherwise noted.
 #
 class splunkuf (
-  $clientname   = $::splunkuf::params::clientname,
-  $targeturi    = $::splunkuf::params::targeturi,
-  $systemd      = $::splunkuf::params::systemd,
-  $system_user  = $::splunkuf::params::system_user,
-  $mgmthostport = $::splunkuf::params::mgmthostport,
+  $clientname              = $::splunkuf::params::clientname,
+  $mgmthostport            = $::splunkuf::params::mgmthostport,
+  $phonehomeintervalinsecs = $::splunkuf::params::phonehomeintervalinsecs,
+  $system_user             = $::splunkuf::params::system_user,
+  $systemd                 = $::splunkuf::params::systemd,
+  $targeturi               = $::splunkuf::params::targeturi,
 ) inherits splunkuf::params {
 
   package { 'splunkforwarder':

@@ -32,6 +32,8 @@ class splunkuf::params {
 
   $clientname  = undef
 
+  $phonehomeintervalinsecs = 60
+
   case $::osfamily {
     'RedHat': {
       if versioncmp($::operatingsystemmajrelease, '7') >= 0 {
